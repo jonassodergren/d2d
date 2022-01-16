@@ -12,15 +12,16 @@
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet">
 
-	<!-- Bootstrap 3
+
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 -->
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-	<!-- Custom stlylesheet -->
+	<!-- Custom stlylesheet
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+-->
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,31 +30,43 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+<style>
+.jumbotron {
+		background: url("https://source.unsplash.com/5SWgIJSsVJo") center center / cover no-repeat;
+}
+</style>
+
 </head>
 
-<body>
-	<nav class="navbar navbar-dark bg-dark">
+<body class="container-fluid p-0">
+	<nav class="navbar navbar-light bg-light">
   <span class="navbar-brand mb-0 h2">Bagandback</span>
 </nav>
 
-<div class="jumbotron text-center">
-  <h1 class="display-4">Res utan väskor</h1>
+<div class="jumbotron text-white text-center">
+  <h1 class="display-4 text-white">Res utan väskor</h1>
   <p class="lead">Ett bekymmersfritt resande</p>
   <hr class="my-4">
-  <p>Väskorna hämtas av en chaufför några dagar innan din resa och väntar på hotellet när du anländer</p>
 </div>
 
-	<div id="booking"> <!-- class="section" -->
-		<div class="section-center"> <!-- class="section-center" -->
-			<div class="container">
-				<div class="row">
-					<div class="booking-form">
+
+
+
+
+<div class="container">
+				<div class="row justify-content-center">
+
 						<form>
-							<div class="row no-margin">
+
+							<div class="row">
+<div class="col-sm-12">
+	<p>*Väskorna hämtas av en chaufför några dagar innan din resa och väntar på hotellet när du anländer</p>
+<h4>Datum</h4>
+</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Från</span>
-										<select class="form-control" style="height: 80px">
+										<select class="form-control" >
 											<option>STO</option>
 										</select>
 										<span class="select-arrow"></span>
@@ -62,14 +75,14 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Till</span>
-										<select class="form-control" style="height: 80px">
+										<select class="form-control" >
 											<option>BAR</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
 								</div>
 							</div>
-							<div class="row no-margin">
+							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Check In</span>
@@ -83,11 +96,16 @@
 									</div>
 								</div>
 							</div>
-							<div class="row no-margin">
+							<hr>
+
+							<div class="row">
+								<div class="col-sm-12">
+								<h4>Information för hämtning</h4>
+							</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Antal resväskor</span>
-										<select class="form-control" style="height: 80px">
+										<select class="form-control" >
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -98,7 +116,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Total vikt</span>
-										<select class="form-control" style="height: 80px">
+										<select class="form-control" >
 											<option>Under 20</option>
 											<option>Under 40</option>
 											<option>Under 60</option>
@@ -121,16 +139,19 @@
 								<span class="form-label">Phone</span>
 								<input class="form-control" type="tel" placeholder="Behövs för att vi ska kunna notifera när föraren är påväg">
 							</div>
+							<!--
 							<div class="form-btn">
 								<button class="submit-btn">Till betalning</button>
 							</div>
+						-->
+							<button type="button" class="btn btn-primary btn-lg btn-block">Köp resa</button>
 
 						</form>
-					</div>
+
 				</div>
 			</div>
-		</div>
-	</div>
+
+
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

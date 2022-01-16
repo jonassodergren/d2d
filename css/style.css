@@ -117,7 +117,8 @@
 	position: absolute;
 	left: 20px;
 	top: 10px;
-	color: #f14634;
+/**	color: #f14634; **/
+color: #eb6864;
 	font-weight: 400;
 	line-height: 24px;
 	font-style: italic;
@@ -127,7 +128,8 @@
 
 .booking-form .submit-btn {
 	color: #fff;
-	background-color: #f14634;
+/**	background-color: #f14634;**/
+  background-color: #eb6864;
 	font-weight: 700;
 	height: 80px;
 	font-size: 18px;
