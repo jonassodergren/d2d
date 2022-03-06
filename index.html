@@ -4,7 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<title>Bagandback - Travel without bags</title>
@@ -40,6 +42,32 @@ background-size: cover;
 padding-top: 20%;
 padding-bottom: 20%;
 }
+.card-img-overlay {
+  background-color: rgba(#000000, 0.1);
+	-webkit-filter: blur(4px);
+ filter: blur(4px);
+}
+.header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10px;
+  background: inherit;
+  background-attachment: fixed;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  background-attachment: fixed;
+  -webkit-filter: blur(12px);
+  filter: blur(12px);
+}
 </style>
 
 </head>
@@ -62,25 +90,66 @@ padding-bottom: 20%;
   <hr class="my-4">
 </div>
 
+<div class="row justify-content-center text-center">
+
+	<h4>En tjänst för dig som vill resa lite enklare</h4>
+
+</div>
+
 <div class="row justify-content-center p-5">
 
-<div class="col-sm-6 text-center">Försäkring ingår</div>
-<div class="col-sm-6 text-center">Du kan spåra väskan</div>
+
+	        <div class="col-md-4 card border-0">
+						<img class="card-img-top" src="https://source.unsplash.com/GOZxrAlNIt4" alt="Card image cap">
+
+
+						<div class="card-body">
+							<h5>Packa i lugn och ro</h5>
+						</div>
+
+
+					</div>
+	        <div class="col-md-4 card border-0">
+						<img class="card-img-top" src="https://source.unsplash.com/s56H08cAlM0" alt="Card image cap">
+						  <div class="card-body">
+						    <h5>Vi hämtar och levererar, tryggt och säkert</h5>
+						  </div>
+					</div>
+	        <div class="col-md-4 card border-0">
+						<img class="card-img-top" src="https://source.unsplash.com/Orz90t6o0e4" alt="Card image cap">
+						  <div class="card-body">
+						    <h5>Du fokuserar på det roliga</h5>
+						  </div>
+					</div>
+
+
+
 
 </div>
 
 
 
+<div class="row justify-content-center text-center">
 
+<div class="col-12">
+	<h3>Priset är 500 SEK</h3>
+</div>
+
+<div class="col-12">
+	<p>Vi behöver några timmar för att undersöka om tjänsten kan leveras för dina val</p>
+	<p>Väskorna hämtas av en chaufför några dagar innan din resa</p>
+	<p>Väskorna väntar på hotellet när du anländer</p>
+</div>
+
+</div>
 
 
 				<div class="row justify-content-center bg-light p-5">
 
-						<form>
+						<form id="form">
 
 							<div class="row">
 <div class="col-sm-12">
-	<p>*Väskorna hämtas av en chaufför några dagar innan din resa och väntar på hotellet när du anländer</p>
 <h4>Datum</h4>
 </div>
 								<div class="col-sm-6">
@@ -122,6 +191,7 @@ padding-bottom: 20%;
 								<div class="col-sm-12">
 								<h4>Information för hämtning</h4>
 							</div>
+							<!--
 								<div class="col-sm-6">
 									<div class="form-group">
 										<span class="form-label">Antal resväskor</span>
@@ -144,7 +214,10 @@ padding-bottom: 20%;
 										<span class="select-arrow"></span>
 									</div>
 								</div>
+							-->
+
 							</div>
+
 							<div class="form-group">
 								<div class="form-group">
 									<span class="form-label">Hämtningsadress</span>
@@ -153,26 +226,51 @@ padding-bottom: 20%;
 							</div>
 							<div class="form-group">
 								<span class="form-label">Email</span>
-								<input class="form-control" type="email" placeholder="Behövs för att skicka bokningsbekräftelse">
+								<input class="form-control" type="email" id="email" name="email" placeholder="Behövs för att skicka bokningsbekräftelse">
 							</div>
+<!--
 							<div class="form-group">
 								<span class="form-label">Phone</span>
 								<input class="form-control" type="tel" placeholder="Behövs för att vi ska kunna notifera när föraren är påväg">
 							</div>
+						-->
+
 							<!--
 							<div class="form-btn">
 								<button class="submit-btn">Till betalning</button>
 							</div>
 						-->
-							<button type="button" class="btn btn-primary btn-lg btn-block">Köp resa</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Kolla tillgänglighet</button>
 
 						</form>
 
 				</div>
 
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+				<script type="text/javascript">
+				     var url = "https://transportservices.azurewebsites.net/api/receiveorder?code=g6eVZhQyoskeYfTcE71dJe4c3f15zwFmLzl/hvZ9v3OezDQjJgSIQg==";
 
+				     $("form").on('submit', function (event) {
+				         event.preventDefault();
+				         var data = $(this).serialize();
 
+				            $.ajax({
+				                type: "GET",
+				                url: url,
+				                data: data,
+				                dataType: "text",
+				                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				                success: function (respData) {
+				                    alert("Tack för din förfrågan, vi återkommer inom kort på angiven email.");
+				                },
+				                error: function (jqXHR) {
+				                    alert("Vi var lite otydliga, ange email så att vi kan nå dig!");
+				                }
+				            });
+
+				     });
+				 </script>
 
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
